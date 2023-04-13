@@ -27,6 +27,8 @@ double Math_lib::mocnina(double zaklad, double exponent){
 }
 
 double Math_lib::odmocnina(double zaklad, double exponent){
+    if(exponent == 0)
+        return 0;
     return pow(zaklad, 1 / exponent);
 }
 
