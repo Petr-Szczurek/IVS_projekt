@@ -1,17 +1,15 @@
 Prostredi
 ---------
 
-Ubuntu 64bit
 Windows 64bit
 
 Autori
 ------
 
 Nazev tymu
-- xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
-- xlogin03 jmeno prijmeni 
-- xlogin04 jmeno prijmeni 
+- xrybni02 Martin Rybníkář
+- xszczu00 Petr Szczurek 
+- xhucza02 Matouš Huczala
 
 Licence
 -------
