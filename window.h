@@ -59,6 +59,7 @@ private slots:
     void MathButtonPressed();
     void EqualButtonPressed();
     void AllClearPressed();
+    void BackspacePressed();
 
 private:
     Ui::Window *ui;

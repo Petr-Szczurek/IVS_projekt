@@ -456,7 +456,9 @@ QPushButton:pressed{
      <string/>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QLineEdit{
+color: black;
+}</string>
     </property>
     <property name="inputMethodHints">
      <set>Qt::ImhNone</set>

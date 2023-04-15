@@ -3,16 +3,18 @@
 
 double calcValue = 0.0;
 int intVal = 0;
+
 double affter_butt_Val = 0;
 bool scitani = false;
 bool odcitani = false;
 bool deleni = false;
 bool nasobeni = false;
-
 bool odmocnina = false;
 bool na_x = false;
 bool faktorial = false;
 bool modulo = false;
+
+bool error = true;
 
 Window::Window(QWidget *parent)
     : QMainWindow(parent)
@@ -42,7 +44,7 @@ Window::Window(QWidget *parent)
     //result, CE, C, backspace
     connect(ui->res, SIGNAL(released()),this, SLOT(EqualButtonPressed()));
     connect(ui->CE, SIGNAL(released()),this, SLOT(AllClearPressed()));
-    connect(ui->backspace, SIGNAL(released()),this, SLOT(AllClearPressed()));
+    connect(ui->backspace, SIGNAL(released()),this, SLOT(BackspacePressed()));
 }
 
 Window::~Window()
@@ -124,13 +126,13 @@ void Window::EqualButtonPressed(){
             vysledek = Math_lib::secti(calcValue, affter_butt_Val);
         }
         else if(odcitani){
-            vysledek = Math_lib::odcitani(calcValue, affter_butt_Val);
+            vysledek = Math_lib::odecitani(calcValue, affter_butt_Val);
         }
         else if(nasobeni){
             vysledek = Math_lib::nasobeni(calcValue, affter_butt_Val);
         }
         else if(deleni){
-            vysledek = Math_lib::deleni(calcValue, affter_butt_Val);
+            error = Math_lib::deleni(calcValue, affter_butt_Val, &vysledek);
         }
         else if(na_x){
             vysledek = Math_lib::na_x(calcValue, affter_butt_Val);
@@ -139,22 +141,22 @@ void Window::EqualButtonPressed(){
             vysledek = Math_lib::faktorial(intVal);
         }
         else if(modulo){
-            vysledek = Math_lib::modulo(calcValue, affter_butt_Val);
+            error = Math_lib::modulo(calcValue, affter_butt_Val, &vysledek);
         }
         else if(odmocnina){
             vysledek = Math_lib::odmocnina(calcValue, affter_butt_Val);
         }
     }
 
-    if(vysledek == errno)
+    if(error == false)
     {
         ui->Vystup->setText("Math Error");
+        error = true;
     }else{
         ui->Vystup->setText(QString::number(vysledek));
     }
 
 }
-
 
 //Clear ALL
 void Window::AllClearPressed(){
@@ -177,10 +179,12 @@ void Window::AllClearPressed(){
     }
 }
 
-
-
-
-
+//backspace, odstrani ze stringu posledni znak
+void Window::BackspacePressed(){
+    QString DISPLAY_VAL = ui->Vystup->text();
+    DISPLAY_VAL.chop(1);
+    ui->Vystup->setText(DISPLAY_VAL);
+}
 
 
 /*
