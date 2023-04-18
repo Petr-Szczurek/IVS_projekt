@@ -13,8 +13,8 @@ public:
     static double nasobeni(double a, double b);
 
     static double odmocnina(double a, int b);
-    static bool modulo(int a, int b, double *vysledek);
-    static long int faktorial(int a);
+    static bool modulo(int a, int b, double* vysledek);
+    static bool faktorial(int a, int* vysledek);
     static double na_x(double a, int b);
 };
 
