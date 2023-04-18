@@ -7,9 +7,9 @@
 # profile (spustí překlad programu pro výpočet směrodatné odchylky na profiling)
 # default - all
 
-target:
-	qmake kalkulacka.pro
-	make -f Makefile
+#target:
+#	qmake kalkulacka.pro
+#	make -f Makefile
 
 test: test.o tests.o math_lib.o
 	g++ test.o tests.o math_lib.o -o test

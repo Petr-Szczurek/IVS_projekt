@@ -31,7 +31,7 @@ double Math_lib::na_x(double zaklad, int exponent){
 double Math_lib::odmocnina(double zaklad, int exponent){
     if(exponent == 0)
         return 0;
-    return pow(exponent, 1/zaklad);
+    return pow(zaklad, 1.0/exponent);
 }
 
 bool Math_lib::modulo(int a, int b, double* vysledek){
@@ -43,7 +43,7 @@ bool Math_lib::modulo(int a, int b, double* vysledek){
 }
 
 bool Math_lib::faktorial(int a, int* vysledek){
-    if(a > 0){
+    if(a >= 0){
         int b = 1;
         for(int i = 1; i <= a; i++)
         {
