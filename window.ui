@@ -93,6 +93,9 @@ QPushButton:pressed{
     <property name="text">
      <string>1</string>
     </property>
+    <property name="shortcut">
+     <string>1</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="button2">
     <property name="geometry">
@@ -126,6 +129,9 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
+     <string>2</string>
+    </property>
+    <property name="shortcut">
      <string>2</string>
     </property>
    </widget>
@@ -181,6 +187,9 @@ QPushButton:pressed{
       <height>16</height>
      </size>
     </property>
+    <property name="shortcut">
+     <string>3</string>
+    </property>
     <property name="checkable">
      <bool>false</bool>
     </property>
@@ -222,6 +231,9 @@ QPushButton:pressed{
     <property name="text">
      <string>6</string>
     </property>
+    <property name="shortcut">
+     <string>6</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="button5">
     <property name="geometry">
@@ -255,6 +267,9 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
+     <string>5</string>
+    </property>
+    <property name="shortcut">
      <string>5</string>
     </property>
    </widget>
@@ -292,6 +307,9 @@ QPushButton:pressed{
     <property name="text">
      <string>4</string>
     </property>
+    <property name="shortcut">
+     <string>4</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="button9">
     <property name="geometry">
@@ -325,6 +343,9 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
+     <string>9</string>
+    </property>
+    <property name="shortcut">
      <string>9</string>
     </property>
    </widget>
@@ -362,6 +383,9 @@ QPushButton:pressed{
     <property name="text">
      <string>8</string>
     </property>
+    <property name="shortcut">
+     <string>8</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="button7">
     <property name="geometry">
@@ -397,13 +421,16 @@ QPushButton:pressed{
     <property name="text">
      <string>7</string>
     </property>
+    <property name="shortcut">
+     <string>7</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="button0">
     <property name="geometry">
      <rect>
-      <x>85</x>
+      <x>14</x>
       <y>435</y>
-      <width>70</width>
+      <width>141</width>
       <height>60</height>
      </rect>
     </property>
@@ -430,6 +457,9 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
+     <string>0</string>
+    </property>
+    <property name="shortcut">
      <string>0</string>
     </property>
    </widget>
@@ -463,8 +493,11 @@ color: black;
     <property name="inputMethodHints">
      <set>Qt::ImhNone</set>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
-   <widget class="QPushButton" name="C">
+   <widget class="QPushButton" name="plus_minus">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -494,7 +527,7 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
-     <string>C</string>
+     <string>+/-</string>
     </property>
    </widget>
    <widget class="QPushButton" name="CE">
@@ -565,6 +598,9 @@ QPushButton:pressed{
     <property name="text">
      <string>%</string>
     </property>
+    <property name="shortcut">
+     <string>%</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="backspace">
     <property name="geometry">
@@ -597,6 +633,9 @@ QPushButton:pressed{
     </property>
     <property name="text">
      <string>⌫</string>
+    </property>
+    <property name="shortcut">
+     <string>Backspace</string>
     </property>
    </widget>
    <widget class="QPushButton" name="div">
@@ -631,6 +670,9 @@ QPushButton:pressed{
     <property name="text">
      <string>÷</string>
     </property>
+    <property name="shortcut">
+     <string>/</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="mul">
     <property name="geometry">
@@ -663,6 +705,9 @@ QPushButton:pressed{
     </property>
     <property name="text">
      <string>×</string>
+    </property>
+    <property name="shortcut">
+     <string>X</string>
     </property>
    </widget>
    <widget class="QPushButton" name="sub">
@@ -697,6 +742,9 @@ QPushButton:pressed{
     <property name="text">
      <string>-</string>
     </property>
+    <property name="shortcut">
+     <string>-</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="sum">
     <property name="geometry">
@@ -728,6 +776,9 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
+     <string>+</string>
+    </property>
+    <property name="shortcut">
      <string>+</string>
     </property>
    </widget>
@@ -764,6 +815,9 @@ QPushButton:pressed{
     <property name="text">
      <string>=</string>
     </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="decimal">
     <property name="geometry">
@@ -797,42 +851,10 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
-     <string>,</string>
+     <string>.</string>
     </property>
-   </widget>
-   <widget class="QPushButton" name="plusMinus">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>435</y>
-      <width>70</width>
-      <height>60</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>26</pointsize>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-    background-color: rgb(184, 188, 188);
-    color: white;
-    border-radius: 10%;
-}
-
-QPushButton:pressed{
-    background-color: rgb(208, 212, 212);
-    color: white;
-    padding: 5px; 
-}
-
-</string>
-    </property>
-    <property name="text">
-     <string>+/-</string>
+    <property name="shortcut">
+     <string>.</string>
     </property>
    </widget>
    <widget class="QPushButton" name="factorial">
@@ -865,6 +887,9 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
+     <string>!</string>
+    </property>
+    <property name="shortcut">
      <string>!</string>
     </property>
    </widget>
@@ -1068,7 +1093,7 @@ QPushButton:pressed{
   <tabstop>button7</tabstop>
   <tabstop>button0</tabstop>
   <tabstop>button1</tabstop>
-  <tabstop>C</tabstop>
+  <tabstop>plus_minus</tabstop>
   <tabstop>CE</tabstop>
   <tabstop>button5</tabstop>
   <tabstop>backspace</tabstop>
@@ -1078,7 +1103,6 @@ QPushButton:pressed{
   <tabstop>sum</tabstop>
   <tabstop>res</tabstop>
   <tabstop>decimal</tabstop>
-  <tabstop>plusMinus</tabstop>
   <tabstop>factorial</tabstop>
   <tabstop>pow</tabstop>
   <tabstop>odmocnina</tabstop>
