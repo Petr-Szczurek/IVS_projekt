@@ -901,7 +901,7 @@ QPushButton:pressed{
      <string>^</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="sqrt">
+   <widget class="QPushButton" name="odmocnina">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -931,7 +931,7 @@ QPushButton:pressed{
 </string>
     </property>
     <property name="text">
-     <string>√</string>
+     <string>√ </string>
     </property>
    </widget>
   </widget>
@@ -1081,7 +1081,7 @@ QPushButton:pressed{
   <tabstop>plusMinus</tabstop>
   <tabstop>factorial</tabstop>
   <tabstop>pow</tabstop>
-  <tabstop>sqrt</tabstop>
+  <tabstop>odmocnina</tabstop>
   <tabstop>button2</tabstop>
  </tabstops>
  <resources/>

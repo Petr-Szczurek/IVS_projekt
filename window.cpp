@@ -21,7 +21,7 @@ Window::Window(QWidget *parent)
     , ui(new Ui::Window)
 {
     ui->setupUi(this);
-    ui->Vystup->setText("Hallo");
+    ui->Vystup->setText("");
     QPushButton *numButtons[10];
     for (int i = 0; i < 10; ++i) {
         QString butName = "button" + QString::number(i);
@@ -36,7 +36,7 @@ Window::Window(QWidget *parent)
     connect(ui->mul, SIGNAL(released()),this, SLOT(MathButtonPressed()));
 
     //odmocnina, mocnina, faktorial, modulo
-    connect(ui->sqrt, SIGNAL(released()),this, SLOT(MathButtonPressed()));
+    connect(ui->odmocnina, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->pow, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->factorial, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->modulo, SIGNAL(released()),this, SLOT(MathButtonPressed()));
@@ -100,7 +100,7 @@ void Window::MathButtonPressed(){
     } else if(QString::compare(butVal, "-", Qt::CaseInsensitive) == 0){
         odcitani = true;
     }
-    else if(QString::compare(butVal, "√", Qt::CaseInsensitive) == 0){
+    else if(QString::compare(butVal, "√ ", Qt::CaseInsensitive) == 0){
         odmocnina = true;
     }
     else if(QString::compare(butVal, "^", Qt::CaseInsensitive) == 0){
@@ -112,7 +112,6 @@ void Window::MathButtonPressed(){
     else if(QString::compare(butVal, "%", Qt::CaseInsensitive) == 0){
         modulo = true;
     }
-
     ui->Vystup->setText("");
 }
 
