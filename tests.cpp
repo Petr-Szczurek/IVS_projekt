@@ -1,7 +1,7 @@
 #include "tests.h"
 
 //-------------- základní operace --------------
-bool Tests::scitani(){
+bool Tests::secti(){
     int inc = 0;
 
     double res = scitani_dvou_cisel(2, 2);
@@ -42,7 +42,7 @@ bool Tests::scitani(){
 }
 
 double Tests::scitani_dvou_cisel(double a, double b){
-    return Math_lib::scitani(a, b);
+    return Math_lib::secti(a, b);
 }
 
 bool Tests::odecitani(){
@@ -195,40 +195,40 @@ double Tests::nasobeni_dvou_cisel(double a, double b){
 }
 
 //------------ pokročilejší operace ------------
-bool Tests::mocnina(){
+bool Tests::na_x(){
     int inc = 0;
 
-    double res = Math_lib::mocnina(2, 3);
+    double res = Math_lib::na_x(2, 3);
     if(res != 8){
         cout << "Chyba pri pocitani mocniny 2 ^ 3 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::mocnina(3, 2);
+    res = Math_lib::na_x(3, 2);
     if(res != 9){
         cout << "Chyba pri pocitani mocniny 3 ^ 2 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::mocnina(10, 5);
+    res = Math_lib::na_x(10, 5);
     if(res != 100000){
         cout << "Chyba pri pocitani mocniny 10 ^ 5 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::mocnina(2, 8);
+    res = Math_lib::na_x(2, 8);
     if(res != 256){
         cout << "Chyba pri pocitani mocniny 2 ^ 8 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::mocnina(10, 0);
+    res = Math_lib::na_x(10, 0);
     if(res != 1){
         cout << "Chyba pri pocitani mocniny 10 ^ 0 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::mocnina(0, 1);
+    res = Math_lib::na_x(0, 1);
     if(res != 0){
         cout << "Chyba pri pocitani mocniny 0 ^ 1 != " << res << endl;
         inc++;
@@ -246,37 +246,37 @@ bool Tests::odmocnina(){
 
     double res = Math_lib::odmocnina(8, 3);
     if(res != 2){
-        cout << "Chyba pri pocitani mocniny 3 v 8 != " << res << endl;
+        cout << "Chyba pri pocitani odmocniny 3 v 8 != " << res << endl;
         inc++;
     }
 
     res = Math_lib::odmocnina(16, 2);
     if(res != 4){
-        cout << "Chyba pri pocitani mocniny 2 v 16 != " << res << endl;
+        cout << "Chyba pri pocitani odmocniny 2 v 16 != " << res << endl;
         inc++;
     }
 
     res = Math_lib::odmocnina(10000, 4);
     if(res != 10){
-        cout << "Chyba pri pocitani mocniny 4 v 10000 != " << res << endl;
+        cout << "Chyba pri pocitani odmocniny 4 v 10000 != " << res << endl;
         inc++;
     }
 
     res = Math_lib::odmocnina(256, 8);
     if(res != 2){
-        cout << "Chyba pri pocitani mocniny 8 v 256 != " << res << endl;
+        cout << "Chyba pri pocitani odmocniny 8 v 256 != " << res << endl;
         inc++;
     }
 
     res = Math_lib::odmocnina(10, 0);
     if(res != 0){
-        cout << "Chyba pri pocitani mocniny 10 v 0 != " << res << endl;
+        cout << "Chyba pri pocitani odmocniny 10 v 0 != " << res << endl;
         inc++;
     }
 
     res = Math_lib::odmocnina(0, 1);
     if(res != 0){
-        cout << "Chyba pri pocitani mocniny 0 v 1 != " << res << endl;
+        cout << "Chyba pri pocitani odmocniny 0 v 1 != " << res << endl;
         inc++;
     }
 
@@ -289,7 +289,7 @@ bool Tests::odmocnina(){
 
 bool Tests::modulo(){
     int inc = 0;
-    int res = 0;
+    double res = 0;
 
     bool cnt = Math_lib::modulo(10, 2, &res);
     if(!cnt){
@@ -346,33 +346,54 @@ bool Tests::modulo(){
 
 bool Tests::faktorial(){
     int inc = 0;
+    int res = 0;
 
-    int res = Math_lib::faktorial(4);
-    if(res != 24){
+    bool cnt = Math_lib::faktorial(4, &res);
+    if(!cnt){
+        cout << "Nelze pocitat faktorial ze zaporne hodnoty\n";
+        inc++;
+    }
+    else if(res != 24){
         cout << "Chyba pri vypoctu faktorialu 4! != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::faktorial(5);
-    if(res != 120){
+    cnt = Math_lib::faktorial(5, &res);
+    if(!cnt){
+        cout << "Nelze pocitat faktorial ze zaporne hodnoty\n";
+        inc++;
+    }
+    else if(res != 120){
         cout << "Chyba pri vypoctu faktorialu 5! != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::faktorial(10);
-    if(res != 3628800){
+    cnt = Math_lib::faktorial(10, &res);
+    if(!cnt){
+        cout << "Nelze pocitat faktorial ze zaporne hodnoty\n";
+        inc++;
+    }
+    else if(res != 3628800){
         cout << "Chyba pri vypoctu faktorialu 10! != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::faktorial(11);
-    if(res != 39916800){
+    cnt = Math_lib::faktorial(11, &res);
+    if(!cnt){
+        cout << "Nelze pocitat faktorial ze zaporne hodnoty\n";
+        inc++;
+    }
+    else if(res != 39916800){
         cout << "Chyba pri vypoctu faktorialu 100! != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::faktorial(0);
-    if(res != 1){
+    cnt = Math_lib::faktorial(0, &res);
+    if(!cnt){
+        cout << "Nelze pocitat faktorial ze zaporne hodnoty\n";
+        inc++;
+    }
+    else if(res != 1){
         cout << "Chyba pri vypoctu faktorialu 0! != " << res << endl;
         inc++;
     }

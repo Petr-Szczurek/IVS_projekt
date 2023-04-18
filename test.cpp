@@ -4,12 +4,12 @@
 using namespace std;
 
 int main() {
-    bool scitani = Tests::scitani();
+    bool scitani = Tests::secti();
     bool odecitani = Tests::odecitani();
     bool deleni = Tests::deleni();
     bool nasobeni = Tests::nasobeni();
 
-    bool mocnina = Tests::mocnina();
+    bool mocnina = Tests::na_x();
     bool odmocnina = Tests::odmocnina();
     bool modulo = Tests::modulo();
     bool faktorial = Tests::faktorial();

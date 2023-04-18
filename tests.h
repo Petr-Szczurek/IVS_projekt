@@ -10,7 +10,7 @@ class Tests
 {
 public:
     //-------------- základní operace --------------
-    static bool scitani();
+    static bool secti();
     static double scitani_dvou_cisel(double a, double b);
 
     static bool odecitani();
@@ -23,13 +23,15 @@ public:
     static double nasobeni_dvou_cisel(double a, double b);
 
     //------------ pokročilejší operace ------------
-    static bool mocnina();
 
     static bool odmocnina();
 
     static bool modulo();
 
     static bool faktorial();
+    
+    static bool na_x();
+
 };
 
 
