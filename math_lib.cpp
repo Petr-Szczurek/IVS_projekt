@@ -42,13 +42,20 @@ bool Math_lib::modulo(int a, int b, double* vysledek){
     return true;
 }
 
-long int Math_lib::faktorial(int a){
-    long int vysledek = 1;
-    for(int i = 1; i <= a; i++)
-        vysledek *= i;
-
-    return vysledek;
+bool Math_lib::faktorial(int a, int* vysledek){
+    if(a > 0){
+        int b = 1;
+        for(int i = 1; i <= a; i++)
+        {
+            b *= i;
+        }
+        *vysledek = b;
+        return true;
+    }else{
+        return false;
+    }
 }
+
 
 
 
