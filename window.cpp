@@ -1,8 +1,21 @@
+/**
+
+@file window.h
+@brief Deklarace třídy Window a globálních proměnných
+*/
+/**
+
+@class Window
+@brief Třída pro vytvoření okna kalkulačky
+Třída obsahuje funkce pro zpracování uživatelského vstupu a zobrazení výsledku na obrazovce.
+*/
+
 #include "window.h"
 #include "./ui_window.h"
 
-double calcValue = 0.0;
+double calcValue = 0.0; 
 int intVal = 0;
+int intVal_aff_but = 0;
 
 double affter_butt_Val = 0;
 bool scitani = false;
@@ -13,6 +26,7 @@ bool odmocnina = false;
 bool na_x = false;
 bool faktorial = false;
 bool modulo = false;
+bool decimal_nmb = false;
 
 bool error = true;
 
@@ -45,6 +59,12 @@ Window::Window(QWidget *parent)
     connect(ui->res, SIGNAL(released()),this, SLOT(EqualButtonPressed()));
     connect(ui->CE, SIGNAL(released()),this, SLOT(AllClearPressed()));
     connect(ui->backspace, SIGNAL(released()),this, SLOT(BackspacePressed()));
+
+    //zmena znamenka
+    connect(ui->plus_minus, SIGNAL(released()),this, SLOT(Plus_minus_Pressed()));
+
+    //decimal
+    connect(ui->decimal, SIGNAL(released()),this, SLOT(DecimalPressed()));
 }
 
 Window::~Window()
@@ -82,12 +102,11 @@ void Window::MathButtonPressed(){
     na_x = false;
     faktorial = false;
     modulo = false;
+    decimal_nmb = false;
 
     QString displayVal = ui->Vystup->text();
-
-    //kvuli faktorialu je potreba pouze int
-    intVal = displayVal.toInt();
     calcValue = displayVal.toDouble();
+    intVal = displayVal.toInt();
     QPushButton *button = (QPushButton *)sender();
     QString butVal = button->text();
 
@@ -117,8 +136,11 @@ void Window::MathButtonPressed(){
 
 void Window::EqualButtonPressed(){
     double vysledek = 0.0;
+    int vysledek_fac = 0;
+
     QString displayVal = ui->Vystup->text();
     affter_butt_Val = displayVal.toDouble();
+    intVal_aff_but = displayVal.toInt();
 
     if(nasobeni || deleni || scitani || odcitani || odmocnina || na_x || faktorial || modulo){
         if(scitani){
@@ -137,10 +159,11 @@ void Window::EqualButtonPressed(){
             vysledek = Math_lib::na_x(calcValue, affter_butt_Val);
         }
         else if(faktorial){
-            vysledek = Math_lib::faktorial(intVal);
+            error = Math_lib::faktorial(intVal, &vysledek_fac);
+            vysledek = vysledek_fac;
         }
         else if(modulo){
-            error = Math_lib::modulo(calcValue, affter_butt_Val, &vysledek);
+            error = Math_lib::modulo(intVal, intVal_aff_but, &vysledek);
         }
         else if(odmocnina){
             vysledek = Math_lib::odmocnina(calcValue, affter_butt_Val);
@@ -155,6 +178,15 @@ void Window::EqualButtonPressed(){
         ui->Vystup->setText(QString::number(vysledek));
     }
 
+    //zjisteni jestli vysledek je desetinne cislo
+    int pos = QString::number(vysledek).indexOf(".");
+
+    //kdyz neni tecka v retezci vrati -1
+    if(pos == -1){
+        decimal_nmb = false;
+    }else{
+        decimal_nmb = true;
+    }
 }
 
 //Clear ALL
@@ -175,172 +207,49 @@ void Window::AllClearPressed(){
         na_x = false;
         faktorial = false;
         modulo = false;
+        decimal_nmb = false;
     }
 }
 
 //backspace, odstrani ze stringu posledni znak
 void Window::BackspacePressed(){
     QString DISPLAY_VAL = ui->Vystup->text();
+    int delka = DISPLAY_VAL.size();
+
+    //zjisteni jestli vysledek je desetinne cislo
+    int pos = DISPLAY_VAL.indexOf(".");
+
+    //kdyz neni tecka v retezci vrati -1
+    if(pos == -1){
+        decimal_nmb = false;
+    }
+
+    //pokud bude desetinna carka smazana, musim mit moznost zadat ji znova
+    if(pos == delka-1){
+        decimal_nmb = false;
+    }
+
     DISPLAY_VAL.chop(1);
     ui->Vystup->setText(DISPLAY_VAL);
 }
 
-
-/*
-//----------------------------------- Výstup -----------------------------------
-void Window::on_Vystup_textChanged(const QString &arg1)
-{
-    //ui->Vystup->setText("dasdsa");
+//prevedni hodnoty
+//vytahne si z displaye cislo string, prevede na double, udela zapornou hodnotu a zpatky posle jako string
+void Window::Plus_minus_Pressed(){
+    QString displayVal = ui->Vystup->text();
+    double hodnota = displayVal.toDouble();
+    hodnota = 0 - hodnota;
+    ui->Vystup->setText(QString::number(hodnota));
 }
 
-//---------------------------------- Tlačítka ----------------------------------
-
-//Tlačítko 0
-void Window::on_button0_clicked()
-{
-    ui->Vystup->setText("0");
+//desetinne cislo
+//muze byt zmacknuto pouze jednou behem zadavani cisla
+void Window::DecimalPressed(){
+    if(decimal_nmb == false){
+        QString displayVal = ui->Vystup->text();
+        displayVal = displayVal + ".";
+        ui->Vystup->setText(displayVal);
+        decimal_nmb = true;
+    }
 }
 
-//Tlačítko 1
-void Window::on_button1_clicked()
-{
-    ui->Vystup->setText("1");
-}
-
-//Tlačítko 2
-void Window::on_button2_clicked()
-{
-    ui->Vystup->setText("2");
-}
-
-//Tlačítko 3
-void Window::on_button3_clicked()
-{
-    ui->Vystup->setText("3");
-}
-
-//Tlačítko 4
-void Window::on_button4_clicked()
-{
-    ui->Vystup->setText("4");
-}
-
-//Tlačítko 5
-void Window::on_button5_clicked()
-{
-    ui->Vystup->setText("5");
-}
-
-//Tlačítko 6
-void Window::on_button6_clicked()
-{
-    ui->Vystup->setText("6");
-}
-
-//Tlačítko 7
-void Window::on_button7_clicked()
-{
-    ui->Vystup->setText("7");
-}
-
-//Tlačítko 8
-void Window::on_button8_clicked()
-{
-    ui->Vystup->setText("8");
-}
-
-//Tlačítko 9
-void Window::on_button9_clicked()
-{
-    ui->Vystup->setText("9");
-}
-
-//---------------------------------- Výpočty ----------------------------------
-
-//Tlačítko na změnu znaménka
-void Window::on_plusMinus_clicked()
-{
-    ui->Vystup->setText("+/-");
-}
-
-//Tlačítko pro zapsání desetinné čárky
-void Window::on_decimal_clicked()
-{
-    ui->Vystup->setText(",");
-}
-
-//Tlačítko pro výpočet modula
-void Window::on_modulo_clicked()
-{
-    ui->Vystup->setText("%");
-}
-
-//Tlačítko pro výpočet odmocniny
-void Window::on_sqrt_clicked()
-{
-    ui->Vystup->setText("sqrt");
-}
-
-//Tlačítko pro výpočet mocniny
-void Window::on_pow_clicked()
-{
-    ui->Vystup->setText("pow");
-}
-
-//Tlačítko pro výpočet faktoriálu
-void Window::on_factorial_clicked()
-{
-    ui->Vystup->setText("!");
-}
-
-//Tlačítko pro dělení
-void Window::on_div_clicked()
-{
-    ui->Vystup->setText("/");
-}
-
-//Tlačítko pro násobení
-void Window::on_mul_clicked()
-{
-    ui->Vystup->setText("*");
-}
-
-//Tlačítko pro odečítání
-void Window::on_sub_clicked()
-{
-    ui->Vystup->setText("-");
-}
-
-//Tlačítko pro sčítání
-void Window::on_sum_clicked()
-{
-    ui->Vystup->setText("+");
-}
-
-//----------------------------------- Mazání -----------------------------------
-
-//Tlačítko pro smazání aktuálního řádku
-void Window::on_CE_clicked()
-{
-    ui->Vystup->setText("CE");
-}
-
-//Tlačítko pro celkové smazání
-void Window::on_C_clicked()
-{
-    ui->Vystup->setText("C");
-}
-
-//Tlačítko pro smazání jednoho znaku
-void Window::on_backspace_clicked()
-{
-    ui->Vystup->setText("backspace");
-}
-
-//Tlačítko pro výpočet aktuálního řádku
-void Window::on_res_clicked()
-{
-    ui->Vystup->setText("=");
-}
-
-*/
