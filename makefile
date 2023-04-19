@@ -11,19 +11,24 @@ all: profiling
 	qmake kalkulacka.pro
 	make -f Makefile
 
-run:
-	./kalkulacka
+pack:
+
+clean:
+	rm math_lib.o test.o tests.o profiling.o main.o Makefile moc_window.o window.o test profiling kalkulacka 
 
 test: test.o tests.o math_lib.o
 	g++ test.o tests.o math_lib.o -o test
 	./test
 
-profiling: profiling.o math_lib.o
+doc:
+
+run:
+	./kalkulacka
+
+profile: profiling.o math_lib.o
 	g++ profiling.o math_lib.o -o profiling
 
-clean:
-	rm math_lib.o test.o tests.o profiling.o main.o Makefile moc_window.o window.o test profiling kalkulacka 
-
+#-------------------------------------------------------#
 test.o: test.cpp
 	g++ -c test.cpp
 
