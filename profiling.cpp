@@ -28,17 +28,21 @@ int main() {
 	int N = arr.size();
 
 	for(int i = 0; i < N; i++)
-		suma += arr.at(i);
+		suma = Math_lib::secti(suma, arr.at(i));
 	
-	double x = (1.0 / N) * suma;
-	double Nxx = N * Math_lib::na_x(x, 2);
+	double n = 0;
+	Math_lib::deleni(1.0, N, &n);
+	double x = Math_lib::nasobeni(n, suma);
+	double Nxx = Math_lib::nasobeni(N, Math_lib::na_x(x, 2));
 	double soucet = 0; // (xx0 + xx1 + ... )
 
 	for(int i = 0; i < N; i++)
-		soucet += Math_lib::na_x(arr.at(i), 2);
-	
-	soucet -= Nxx;
-	double s = (1.0 / (N - 1)) * soucet;
+		soucet = Math_lib::secti(soucet, Math_lib::na_x(arr.at(i), 2));
+
+	soucet = Math_lib::odecitani(soucet, Nxx);
+	n = 0;
+	Math_lib::deleni(1.0, Math_lib::odecitani(N, 1), &n);
+	double s = Math_lib::nasobeni(n, soucet);
 	
 	s = Math_lib::odmocnina(s, 2);
 
