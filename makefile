@@ -6,6 +6,7 @@
 # run (spustí program)
 # profile (spustí překlad programu pro výpočet směrodatné odchylky na profiling)
 # default - all
+CXX = g++
 
 all: profiling
 	qmake kalkulacka.pro
@@ -17,7 +18,7 @@ clean:
 	rm math_lib.o test.o tests.o profiling.o main.o Makefile moc_window.o window.o test profiling kalkulacka 
 
 test: test.o tests.o math_lib.o
-	g++ test.o tests.o math_lib.o -o test
+	CXX test.o tests.o math_lib.o -o test
 	./test
 
 doc:
@@ -26,17 +27,17 @@ run:
 	./kalkulacka
 
 profile: profiling.o math_lib.o
-	g++ profiling.o math_lib.o -o profiling
+	CXX profiling.o math_lib.o -o profiling
 
 #-------------------------------------------------------#
 test.o: test.cpp
-	g++ -c test.cpp
+	CXX -c test.cpp
 
 tests.o: tests.cpp
-	g++ -c tests.cpp
+	CXX -c tests.cpp
 
 math_lib.o: math_lib.cpp
-	g++ -c math_lib.cpp
+	CXX -c math_lib.cpp
 
 profiling.o: profiling.cpp
-	g++ -c profiling.cpp
+	CXX -c profiling.cpp
