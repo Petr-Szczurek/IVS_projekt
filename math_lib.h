@@ -1,13 +1,13 @@
 #ifndef MATH_LIB_H
 #define MATH_LIB_H
 
-/*
-    @file math_lib.h
-    @author Petr Szczurek
-    @author Matous Huczala
-    @author Martin Rybnikar
-    @class  matematicka knihovna
-*/
+/**
+ *   @file math_lib.h
+ *   @author Petr Szczurek
+ *   @author Matous Huczala
+ *   @author Martin Rybnikar
+ *   @class  matematicka knihovna
+ */
 
 class Math_lib
 {
@@ -84,14 +84,15 @@ static double nasobeni(double a, double b);
 /*******************************************************************************
  * Pokročilejší operace
  ******************************************************************************/
+
 /** 
  * @brief n-tá Odmocnina.
  *
- * Odmocní danou hodnotu zvolenou odmocninou.
+ * Odmocní danou hodnotu zvolenou odmocninou. Prvně zaokrouhlí základ a potom vypočítá.
  * 
  * Příklad užití:
  * @code{.cpp}
- * bool x = Math_lib::odmocnina(27.0, 3, vysledek);
+ * bool x = Math_lib::odmocnina(27.4, 3, vysledek);
  * @endcode
  * 
  * @param[in] a Hodnota kterou chceme odmocnit. - základ.

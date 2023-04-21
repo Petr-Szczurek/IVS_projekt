@@ -29,18 +29,25 @@ double Math_lib::na_x(double zaklad, int exponent){
 }
 
 bool Math_lib::odmocnina(double zaklad, int exponent, double* vysledek){
+    bool sign = true; ///<kontrola kladného nebo záporného čísla
     if (exponent <= 0)
         return false;
     if (exponent%2 == 0){ // ošetření sudých odmocnin a záporného základu
         if (zaklad < 0)
             return false;
     }
-    else{
-        double zaklad2 = round(zaklad); ///<zaokrouhlene cislo
-        int zaklad3 = static_cast<int>(zaklad2); ///<prevedene cislo na int
-        *vysledek = pow(zaklad3, 1.0/exponent);
-        return true;
+    if (zaklad < 0){
+        sign = false;
+        zaklad = zaklad * -1;
     }
+
+    double zaklad2 = round(zaklad); ///<zaokrouhlení čísla
+    int zaklad3 = static_cast<int>(zaklad2); ///<převod čísla na int
+    *vysledek = pow(zaklad3, 1.0/exponent); ///<výpočet odmocniny
+    if (!sign)
+        *vysledek = *vysledek * -1;
+    
+    return true;
 }
 
 bool Math_lib::modulo(int a, int b, double* vysledek){

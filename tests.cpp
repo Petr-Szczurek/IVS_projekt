@@ -243,40 +243,71 @@ bool Tests::na_x(){
 
 bool Tests::odmocnina(){
     int inc = 0;
+    double res = 0;
 
-    double res = Math_lib::odmocnina(8, 3);
-    if(res != 2){
-        cout << "Chyba pri pocitani odmocniny 3 v 8 != " << res << endl;
+    bool cnt = Math_lib::odmocnina(-8.4, 3, &res);
+    if(!cnt){
+        cout << "Chyba pri pocitani odmocniny1\n";
+        inc++;
+    }
+    else if(res != -2){
+        cout << "Chyba pri vypoctu odmocniny 3 v 8 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::odmocnina(16, 2);
-    if(res != 4){
+    cnt = Math_lib::odmocnina(16, 2, &res);
+    if(!cnt){
+        cout << "Chyba pri pocitani odmocniny2\n";
+        inc++;
+    }
+    else if(res != 4){
         cout << "Chyba pri pocitani odmocniny 2 v 16 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::odmocnina(10000, 4);
-    if(res != 10){
+    cnt = Math_lib::odmocnina(10000, 4, &res);
+    if(!cnt){
+        cout << "Chyba pri pocitani odmocniny3\n";
+        inc++;
+    }
+    else if(res != 10){
         cout << "Chyba pri pocitani odmocniny 4 v 10000 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::odmocnina(256, 8);
-    if(res != 2){
+    cnt = Math_lib::odmocnina(256, 8, &res);
+    if(!cnt){
+        cout << "Chyba pri pocitani odmocniny4\n";
+        inc++;
+    }
+    else if(res != 2){
         cout << "Chyba pri pocitani odmocniny 8 v 256 != " << res << endl;
         inc++;
     }
 
-    res = Math_lib::odmocnina(10, 0);
-    if(res != 0){
-        cout << "Chyba pri pocitani odmocniny 10 v 0 != " << res << endl;
+    cnt = Math_lib::odmocnina(10, 0, &res);
+    if(cnt){
+        cout << "Chyba pri pocitani odmocniny5\n";
         inc++;
     }
 
-    res = Math_lib::odmocnina(0, 1);
-    if(res != 0){
-        cout << "Chyba pri pocitani odmocniny 0 v 1 != " << res << endl;
+    cnt = Math_lib::odmocnina(0, 1, &res);
+    if(!cnt){
+        cout << "Chyba pri pocitani odmocniny6\n";
+        inc++;
+    }
+    else if(res != 0){
+        cout << "Chyba pri pocitani odmocniny 1 v 0 != " << res << endl;
+        inc++;
+    }
+
+    cnt = Math_lib::odmocnina(-0.5, 1, &res);
+    if(!cnt){
+        cout << "Chyba pri pocitani odmocniny6\n";
+        inc++;
+    }
+    else if(res != -1){
+        cout << "Chyba pri pocitani odmocniny 1 v -0.5 != " << res << endl;
         inc++;
     }
 
