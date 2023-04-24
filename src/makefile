@@ -8,7 +8,7 @@
 # default - all
 CXX = g++
 
-#all: profiling
+#all: profiling test
 #	qmake kalkulacka.pro
 #	make -f Makefile
 
