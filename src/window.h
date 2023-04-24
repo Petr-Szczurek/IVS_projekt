@@ -1,23 +1,25 @@
-/**
-
-@file window.h
-@brief Deklarace třídy Window, která reprezentuje hlavní okno kalkulačky.
-*/
 #ifndef WINDOW_H
 #define WINDOW_H
 
 #include <QMainWindow>
 #include "math_lib.h"
 
+/**
+ *   @file window.h
+ *   @author Petr Szczurek
+ *   @author Matous Huczala
+ *   @author Martin Rybnikar
+ * 
+ *   @brief Deklarace třídy Window, která reprezentuje hlavní okno kalkulačky.
+ */
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Window; }
 QT_END_NAMESPACE
 
 /**
-
-@brief Třída Window reprezentuje hlavní okno kalkulačky.
-*/
+ *@brief Třída Window reprezentuje hlavní okno kalkulačky.
+ */
 class Window : public QMainWindow
 
 {
@@ -26,10 +28,10 @@ class Window : public QMainWindow
 
 public:
 /**
-* @brief Konstruktor třídy Window.
-*
-* @param parent Ukazatel na rodičovské okno.
-*/
+ * @brief Konstruktor třídy Window.
+ *
+ * @param parent Ukazatel na rodičovské okno.
+ */
     Window(QWidget *parent = nullptr);
 /**
  * @brief Destruktor třídy Window.
@@ -72,7 +74,7 @@ private slots:
  */
     void DecimalPressed();
 private:
-    Ui::Window *ui; /**< Ukazatel na uživatelské rozhraní. */
+    Ui::Window *ui; ///< Ukazatel na uživatelské rozhraní.
 };
 
 #endif // WINDOW_H

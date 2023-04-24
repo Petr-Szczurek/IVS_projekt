@@ -1,6 +1,15 @@
 #include "tests.h"
 #include <iostream>
 
+/**
+ *   @file test.cpp
+ *   @author Petr Szczurek
+ *   @author Matous Huczala
+ *   @author Martin Rybnikar
+ * 
+ *   @brief Kontrola zda všechny testy prošly bez chyby.
+ */
+
 using namespace std;
 
 int main() {

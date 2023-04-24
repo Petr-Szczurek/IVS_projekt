@@ -4,12 +4,22 @@
 #include "math_lib.h"
 #include <iostream>
 
+/**
+ *   @file tests.h
+ *   @author Petr Szczurek
+ *   @author Matous Huczala
+ *   @author Martin Rybnikar
+ */
+
 using namespace std;
 
+/**
+ * @brief Definice třídy Tests pro testy na matematickou knihovnu.
+ */
 class Tests
 {
 public:
-    //-------------- základní operace --------------
+    //-------------- základní operace --------------//
     static bool secti();
     static double scitani_dvou_cisel(double a, double b);
 
@@ -22,7 +32,7 @@ public:
     static bool nasobeni();
     static double nasobeni_dvou_cisel(double a, double b);
 
-    //------------ pokročilejší operace ------------
+    //------------ pokročilejší operace ------------//
 
     static bool odmocnina();
 

@@ -146,7 +146,7 @@ static bool faktorial(int a, int* vysledek);
  * @endcode
  * 
  * @param[in] a Hodnota kterou chceme umocnit.
- * @param[out] vysledek Exponent.
+ * @param[out] b Exponent.
  * @return Výsledek umocnění.
 */
 static double na_x(double a, int b);

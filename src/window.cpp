@@ -1,17 +1,14 @@
-/**
-
-@file window.h
-@brief Deklarace třídy Window a globálních proměnných
-*/
-/**
-
-@class Window
-@brief Třída pro vytvoření okna kalkulačky
-Třída obsahuje funkce pro zpracování uživatelského vstupu a zobrazení výsledku na obrazovce.
-*/
-
 #include "window.h"
 #include "./ui_window.h"
+
+/**
+ *   @file window.cpp
+ *   @author Petr Szczurek
+ *   @author Matous Huczala
+ *   @author Martin Rybnikar
+ * 
+ *   @brief Deklarace proměnných
+ */
 
 double calcValue = 0.0; 
 int intVal = 0;
@@ -43,27 +40,27 @@ Window::Window(QWidget *parent)
         connect(numButtons[i], SIGNAL(released()),this, SLOT(NumPressed()));
     }
 
-    //scitani, odcitani, deleni, nasobeni
+    // sčítání, odčítání, dělení, násobení
     connect(ui->sum, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->sub, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->div, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->mul, SIGNAL(released()),this, SLOT(MathButtonPressed()));
 
-    //odmocnina, mocnina, faktorial, modulo
+    // odmocnina, mocnina, faktoriál, modulo
     connect(ui->odmocnina, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->pow, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->factorial, SIGNAL(released()),this, SLOT(MathButtonPressed()));
     connect(ui->modulo, SIGNAL(released()),this, SLOT(MathButtonPressed()));
 
-    //result, CE, C, backspace
+    // result, CE, C, backspace
     connect(ui->res, SIGNAL(released()),this, SLOT(EqualButtonPressed()));
     connect(ui->CE, SIGNAL(released()),this, SLOT(AllClearPressed()));
     connect(ui->backspace, SIGNAL(released()),this, SLOT(BackspacePressed()));
 
-    //zmena znamenka
+    // změna znaménka
     connect(ui->plus_minus, SIGNAL(released()),this, SLOT(Plus_minus_Pressed()));
 
-    //decimal
+    // decimal
     connect(ui->decimal, SIGNAL(released()),this, SLOT(DecimalPressed()));
 }
 
@@ -72,13 +69,14 @@ Window::~Window()
     delete ui;
 }
 
-//stisknuti cisla
+/**
+ * @brief Funkce na stisknutí čísla
+ */
 void Window::NumPressed()
 {
-    //ukazatel na button, ktery vyvolal signal
-    QPushButton *button = (QPushButton *)sender();
+    QPushButton *button = (QPushButton *)sender(); ///<ukazatel na button, který vyvolal signál
 
-    //hodnota clacitka se ulozi do BUTTON
+    // hodnota clacitka se ulozi do BUTTON
     QString butVal = button->text();
     QString DISPLAY_VAL = ui->Vystup->text();
     if((DISPLAY_VAL.toDouble() == 0) || (DISPLAY_VAL.toDouble()))
@@ -91,7 +89,9 @@ void Window::NumPressed()
     }
 }
 
-//calcVal = na displaji pred math tlacitkem
+/**
+ * @brief Funkce na stisknutí matematické operace
+ */
 void Window::MathButtonPressed(){
     scitani = false;
     odcitani = false;
@@ -104,12 +104,14 @@ void Window::MathButtonPressed(){
     modulo = false;
     decimal_nmb = false;
 
+    // Načtení hodnoty zobrazené na displeji a konverze na double nebo integer.
     QString displayVal = ui->Vystup->text();
     calcValue = displayVal.toDouble();
     intVal = displayVal.toInt();
     QPushButton *button = (QPushButton *)sender();
     QString butVal = button->text();
 
+    // Získání tlačítka, které bylo stisknuto, a jeho hodnoty.
     if(QString::compare(butVal, "÷", Qt::CaseInsensitive) == 0){
         deleni = true;
     } else if(QString::compare(butVal, "×", Qt::CaseInsensitive) == 0){
@@ -131,9 +133,13 @@ void Window::MathButtonPressed(){
     else if(QString::compare(butVal, "%", Qt::CaseInsensitive) == 0){
         modulo = true;
     }
+    // Vymazání zobrazené hodnoty na displeji.
     ui->Vystup->setText("");
 }
 
+/**
+ * @brief Funkce na stisknutí znaku "=".
+ */
 void Window::EqualButtonPressed(){
     double vysledek = 0.0;
     int vysledek_fac = 0;
@@ -178,10 +184,10 @@ void Window::EqualButtonPressed(){
         ui->Vystup->setText(QString::number(vysledek));
     }
 
-    //zjisteni jestli vysledek je desetinne cislo
+    // zjíštění jestli výsledek je desetinné číslo
     int pos = QString::number(vysledek).indexOf(".");
 
-    //kdyz neni tecka v retezci vrati -1
+    // když není tečka v řetězci, vrátí -1
     if(pos == -1){
         decimal_nmb = false;
     }else{
@@ -189,7 +195,9 @@ void Window::EqualButtonPressed(){
     }
 }
 
-//Clear ALL
+/**
+ * @brief Funkce na stisknutí znaku CE.
+ */
 void Window::AllClearPressed(){
     QPushButton *button = (QPushButton *)sender();
     QString butVal = button->text();
@@ -211,20 +219,22 @@ void Window::AllClearPressed(){
     }
 }
 
-//backspace, odstrani ze stringu posledni znak
+/**
+ * @brief Funkce na stisknutí znaku Backspace. Odstraní ze stringu poslední znak.
+ */
 void Window::BackspacePressed(){
     QString DISPLAY_VAL = ui->Vystup->text();
     int delka = DISPLAY_VAL.size();
 
-    //zjisteni jestli vysledek je desetinne cislo
+    // zjíštění jestli výsledek je desetinné číslo
     int pos = DISPLAY_VAL.indexOf(".");
 
-    //kdyz neni tecka v retezci vrati -1
+    // když není tečka v řetězci vrátí -1
     if(pos == -1){
         decimal_nmb = false;
     }
 
-    //pokud bude desetinna carka smazana, musim mit moznost zadat ji znova
+    // pokud bude desetinná čárka smazána, musím mít možnost zadat ji znovu
     if(pos == delka-1){
         decimal_nmb = false;
     }
@@ -233,8 +243,9 @@ void Window::BackspacePressed(){
     ui->Vystup->setText(DISPLAY_VAL);
 }
 
-//prevedni hodnoty
-//vytahne si z displaye cislo string, prevede na double, udela zapornou hodnotu a zpatky posle jako string
+/**
+ * @brief Funkce na stisknutí znaku Plus-Minus. Funkce převede hodnotu na stejnou hodnotu s opačným znaménkem.
+ */
 void Window::Plus_minus_Pressed(){
     QString displayVal = ui->Vystup->text();
     double hodnota = displayVal.toDouble();
@@ -242,8 +253,9 @@ void Window::Plus_minus_Pressed(){
     ui->Vystup->setText(QString::number(hodnota));
 }
 
-//desetinne cislo
-//muze byt zmacknuto pouze jednou behem zadavani cisla
+/**
+ * @brief Funkce na stisknutí znaku desetinného čísla. Může být zmáčknuto pouze jednou během zadávání čísla. 
+ */
 void Window::DecimalPressed(){
     if(decimal_nmb == false){
         QString displayVal = ui->Vystup->text();
@@ -252,4 +264,3 @@ void Window::DecimalPressed(){
         decimal_nmb = true;
     }
 }
-

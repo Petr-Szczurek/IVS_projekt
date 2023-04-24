@@ -9,7 +9,7 @@
 CXX = g++
 
 #all: profile test
-#	qmake kalkulacka.pro
+#	qmake6 kalkulacka.pro
 #	make -f Makefile
 
 pack:
