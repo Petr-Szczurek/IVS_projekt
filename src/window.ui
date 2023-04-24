@@ -995,12 +995,6 @@ QPushButton:pressed{
       </property>
       <addaction name="actionOdstran_jeden_znak"/>
      </widget>
-     <widget class="QMenu" name="menuC">
-      <property name="title">
-       <string>C</string>
-      </property>
-      <addaction name="actionVyma_e_v_echno"/>
-     </widget>
      <widget class="QMenu" name="menuCE">
       <property name="title">
        <string>CE</string>
@@ -1008,7 +1002,6 @@ QPushButton:pressed{
       <addaction name="actionVyma_e_aktu_ln_dek"/>
      </widget>
      <addaction name="menuBackspace"/>
-     <addaction name="menuC"/>
      <addaction name="menuCE"/>
     </widget>
     <widget class="QMenu" name="menuMatematick_funkce">
@@ -1027,11 +1020,62 @@ QPushButton:pressed{
       </property>
       <addaction name="actionVypo_t_faktori_l_ze_zadan_ho_sla"/>
      </widget>
+     <widget class="QMenu" name="menuModulo">
+      <property name="title">
+       <string>Modulo</string>
+      </property>
+      <addaction name="actionHodnota_kterou_chceme_vyd_lit_potom_hodnota_kteou_d_l_me"/>
+      <addaction name="actionV_dledkem_je_zbytek_po_d_len"/>
+     </widget>
+     <widget class="QMenu" name="menuObecn_mocnina">
+      <property name="title">
+       <string>Obecná mocnina</string>
+      </property>
+      <addaction name="actionHodnota_kterou_chceme_umocnit_potom_exponent"/>
+     </widget>
+     <widget class="QMenu" name="menuN_sobnen">
+      <property name="title">
+       <string>Násobnení </string>
+      </property>
+      <addaction name="action1_hodnota_pro_n_soben_potom_2_hodnota_pro_n_soben"/>
+     </widget>
+     <widget class="QMenu" name="menud_len">
+      <property name="title">
+       <string>dělení </string>
+      </property>
+      <addaction name="actionD_lenec_potom_d_litel"/>
+     </widget>
+     <widget class="QMenu" name="menus_t_n">
+      <property name="title">
+       <string>sčítání </string>
+      </property>
+      <addaction name="actionPrvn_hodnota_k_se_ten_druh_hodnota_k_se_ten"/>
+     </widget>
+     <widget class="QMenu" name="menuod_t_n">
+      <property name="title">
+       <string>odčítání</string>
+      </property>
+      <addaction name="actionHodnota_od_kter_se_od_t_hodnota_kter_se_od_t"/>
+     </widget>
+     <addaction name="actionPro_v_po_et_matematick_funkce_je_pot_eba_zadat_slo_operaci_slo_Pro_v_po_et_funkce_slou_tla_tko_rovn_tka_2"/>
      <addaction name="menuOdmocnina"/>
      <addaction name="menuFaktori_l"/>
+     <addaction name="menuModulo"/>
+     <addaction name="menuObecn_mocnina"/>
+     <addaction name="menuN_sobnen"/>
+     <addaction name="menud_len"/>
+     <addaction name="menus_t_n"/>
+     <addaction name="menuod_t_n"/>
+    </widget>
+    <widget class="QMenu" name="menuZm_na_znam_nka">
+     <property name="title">
+      <string>Změna znaménka</string>
+     </property>
+     <addaction name="actionNejd_ve_slo_potom_tla_tko_pro_zm_nu_znam_nka"/>
     </widget>
     <addaction name="menuMaz_n"/>
     <addaction name="menuMatematick_funkce"/>
+    <addaction name="menuZm_na_znam_nka"/>
    </widget>
    <addaction name="napoveda"/>
   </widget>
@@ -1068,17 +1112,77 @@ QPushButton:pressed{
   </action>
   <action name="actionVyma_e_aktu_ln_dek">
    <property name="text">
-    <string>Vymaže aktuální řádek</string>
+    <string>Smaže vše</string>
    </property>
   </action>
   <action name="actionVypo_t_faktori_l_ze_zadan_ho_sla">
    <property name="text">
-    <string>Vypočítá faktoriál ze zadaného čísla</string>
+    <string>číslo pro vypočítat faktoriál, tlačítko faktoriál </string>
    </property>
   </action>
   <action name="actionNejd_v_exponent_potom_z_klad">
    <property name="text">
-    <string>Nejdřív exponent, potom základ</string>
+    <string>Základ, potom exponent</string>
+   </property>
+  </action>
+  <action name="actionzm_na_znam_nka">
+   <property name="text">
+    <string>změna znaménka</string>
+   </property>
+  </action>
+  <action name="actionNejd_ve_slo_potom_tla_tko_pro_zm_nu_znam_nka">
+   <property name="text">
+    <string>Nejdříve číslo, potom tlačítko pro změnu znaménka</string>
+   </property>
+  </action>
+  <action name="actionHodnota_kterou_chceme_vyd_lit_potom_hodnota_kteou_d_l_me">
+   <property name="text">
+    <string>Hodnota kterou chceme vydělit, potom hodnota kteou dělíme</string>
+   </property>
+  </action>
+  <action name="actionV_dledkem_je_zbytek_po_d_len">
+   <property name="text">
+    <string>Výdledkem je zbytek po dělení</string>
+   </property>
+  </action>
+  <action name="actionHodnota_kterou_chceme_umocnit_potom_exponent">
+   <property name="text">
+    <string>Hodnota kterou chceme umocnit, potom exponent</string>
+   </property>
+  </action>
+  <action name="action1_hodnota_pro_n_soben_potom_2_hodnota_pro_n_soben">
+   <property name="text">
+    <string>1. hodnota pro násobení, potom 2. hodnota pro násobení</string>
+   </property>
+  </action>
+  <action name="actionD_lenec_potom_d_litel">
+   <property name="text">
+    <string>Dělenec, potom dělitel</string>
+   </property>
+  </action>
+  <action name="actionPrvn_hodnota_k_se_ten_druh_hodnota_k_se_ten">
+   <property name="text">
+    <string>První hodnota k sečtení, druhá hodnota k sečtení</string>
+   </property>
+  </action>
+  <action name="actionHodnota_od_kter_se_od_t_hodnota_kter_se_od_t">
+   <property name="text">
+    <string>Hodnota od které se odčítá, hodnota která se odčítá</string>
+   </property>
+  </action>
+  <action name="actionPro_v_po_et_matematick_funkce_je_pot_eba_zadat_slo_operaci_slo_Pro_v_po_et_funkce_slou_tla_tko_rovn_tka">
+   <property name="text">
+    <string>Pro výpočet matematické funkce je potřeba zadat číslo, operaci, číslo. Pro výpočet funkce slouží tlačítko rovnítka</string>
+   </property>
+  </action>
+  <action name="actionPro_v_po_et_matematick_funkce_je_pot_eba_zadat_slo_operaci_slo_Pro_v_po_et_funkce_slou_tla_tko_rovn_tka_2">
+   <property name="text">
+    <string>1. zadat číslo            2. zadat operaci            3. zadat druhé číslo             4. Tlačítko rovnítka</string>
+   </property>
+  </action>
+  <action name="actionahoj">
+   <property name="text">
+    <string>ahoj</string>
    </property>
   </action>
  </widget>
