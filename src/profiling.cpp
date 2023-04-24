@@ -44,8 +44,14 @@ int main() {
 	Math_lib::deleni(1.0, Math_lib::odecitani(N, 1), &n);
 	double s = Math_lib::nasobeni(n, soucet);
 	
-	s = Math_lib::odmocnina(s, 2);
-
+	bool valid = true;
+	valid = Math_lib::odmocnina(s, 2, &s);
+	if (!valid)
+	{
+		cout << "Chyba pri pocitani odmocniny\n";
+		return -1;
+	}
+	
 	//vypis do konzole
 	cout << s << endl;
 	arr.clear();
