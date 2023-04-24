@@ -1,6 +1,21 @@
 #include "tests.h"
 
-//-------------- základní operace --------------
+/**
+ *   @file tests.cpp
+ *   @author Petr Szczurek
+ *   @author Matous Huczala
+ *   @author Martin Rybnikar
+ * 
+ *   @brief Implementace jednotlivých testů na jednotlivé funkce matematické knihovny.
+ */
+
+//==============================================//
+//-------------- základní operace --------------//
+//==============================================//
+
+/**
+ * @brief Testy na sčítání. 
+ */
 bool Tests::secti(){
     int inc = 0;
 
@@ -45,6 +60,9 @@ double Tests::scitani_dvou_cisel(double a, double b){
     return Math_lib::secti(a, b);
 }
 
+/**
+ * @brief Testy na odčítání. 
+ */
 bool Tests::odecitani(){
     int inc = 0;
 
@@ -89,6 +107,9 @@ double Tests::odecitani_dvou_cisel(double a, double b){
     return Math_lib::odecitani(a, b);
 }
 
+/**
+ * @brief Testy na dělení. 
+ */
 bool Tests::deleni(){
     int inc = 0;
     double res = 0;
@@ -150,6 +171,9 @@ bool Tests::deleni_dvou_cisel(double a, double b, double* vysledek){
     return Math_lib::deleni(a, b, vysledek);
 }
 
+/**
+ * @brief Testy na násobení. 
+ */
 bool Tests::nasobeni(){
     int inc = 0;
 
@@ -194,7 +218,13 @@ double Tests::nasobeni_dvou_cisel(double a, double b){
     return Math_lib::nasobeni(a, b);
 }
 
-//------------ pokročilejší operace ------------
+//==============================================//
+//------------ pokročilejší operace ------------//
+//==============================================//
+
+/**
+ * @brief Testy na obecnou mocninu. 
+ */
 bool Tests::na_x(){
     int inc = 0;
 
@@ -241,6 +271,9 @@ bool Tests::na_x(){
     return false;
 }
 
+/**
+ * @brief Testy na obecnou odmocninu. 
+ */
 bool Tests::odmocnina(){
     int inc = 0;
     double res = 0;
@@ -318,6 +351,9 @@ bool Tests::odmocnina(){
     return false;
 }
 
+/**
+ * @brief Testy na modulo. 
+ */
 bool Tests::modulo(){
     int inc = 0;
     double res = 0;
@@ -375,6 +411,9 @@ bool Tests::modulo(){
     return false;
 }
 
+/**
+ * @brief Testy na faktoriál. 
+ */
 bool Tests::faktorial(){
     int inc = 0;
     int res = 0;
