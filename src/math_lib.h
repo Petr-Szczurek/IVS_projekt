@@ -3,12 +3,15 @@
 
 /**
  *   @file math_lib.h
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
- *   @class  matematicka knihovna
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
+ *   @brief Deklarace třídy a funkcí matematické knihovny
  */
 
+/**
+ * @brief Funkce matematické knihovny
+ */
 class Math_lib
 {
 public:

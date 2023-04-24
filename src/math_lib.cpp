@@ -3,9 +3,10 @@
 
 /**
  *   @file math_lib.cpp
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
+ *   @brief Implementace funkcí matematické knihovny
  */
 
 //-------------- základní operace --------------//

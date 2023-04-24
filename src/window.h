@@ -6,9 +6,9 @@
 
 /**
  *   @file window.h
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
  * 
  *   @brief Deklarace třídy Window, která reprezentuje hlavní okno kalkulačky.
  */
@@ -18,7 +18,7 @@ namespace Ui { class Window; }
 QT_END_NAMESPACE
 
 /**
- *@brief Třída Window reprezentuje hlavní okno kalkulačky.
+ * @brief Window reprezentuje hlavní okno kalkulačky.
  */
 class Window : public QMainWindow
 

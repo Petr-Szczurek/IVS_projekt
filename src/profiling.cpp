@@ -4,9 +4,10 @@
 
 /**
  *   @file profiling.cpp
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
+ *   @brief Implementace kódu pro profiling
  */
 
 using namespace std;
@@ -32,7 +33,7 @@ int main()
 	} while(char_input != EOF);
 
 	//výpočet podle vzorce a výpis do konzole
-	int suma = 0; ///<součet všech čísel
+	int suma = 0; ///< součet všech čísel
 	int N = arr.size();
 
 	for(int i = 0; i < N; i++)

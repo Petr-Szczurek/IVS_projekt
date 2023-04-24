@@ -3,13 +3,13 @@
 
 /**
  *   @file window.cpp
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
- * 
- *   @brief Deklarace proměnných
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
+ *   @brief Implementace funkcí GUI
  */
 
+// Deklarace proměnných
 double calcValue = 0.0; 
 int intVal = 0;
 int intVal_aff_but = 0;

@@ -22,7 +22,8 @@ test: test.o tests.o math_lib.o
 	./test
 
 doc:
-
+	doxygen Doxyfile
+	
 run:
 	./kalkulacka
 

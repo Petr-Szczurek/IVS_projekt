@@ -6,15 +6,16 @@
 
 /**
  *   @file tests.h
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
+ *   @brief Definice třídy Tests pro testy na matematickou knihovnu
  */
 
 using namespace std;
 
 /**
- * @brief Definice třídy Tests pro testy na matematickou knihovnu.
+ * @brief Testy nad matematickou knihovnou
  */
 class Tests
 {

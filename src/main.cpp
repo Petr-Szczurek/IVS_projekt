@@ -5,9 +5,9 @@
 #include <QTranslator>
 /**
  *   @file main.cpp
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
  *   @brief Hlavní funkce pro inicializaci aplikace a načtení překladů.
  */
 

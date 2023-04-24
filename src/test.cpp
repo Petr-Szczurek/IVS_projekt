@@ -3,9 +3,9 @@
 
 /**
  *   @file test.cpp
- *   @author Petr Szczurek
- *   @author Matous Huczala
- *   @author Martin Rybnikar
+ *   @authors Petr Szczurek
+ *   @authors Matous Huczala
+ *   @authors Martin Rybnikar
  * 
  *   @brief Kontrola zda všechny testy prošly bez chyby.
  */
