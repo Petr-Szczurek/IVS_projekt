@@ -7,6 +7,7 @@
 # profile (spustí překlad programu pro výpočet směrodatné odchylky na profiling)
 # default - all
 CXX = g++
+ALL_CLEAN = math_lib.o test.o tests.o profiling.o main.o moc_window.o window.o test profiling kalkulacka moc_predefs.h moc_window.cpp 
 
 #all: profile test
 #	qmake6 kalkulacka.pro
@@ -15,7 +16,7 @@ CXX = g++
 pack:
 
 clean:
-	rm -f math_lib.o test.o tests.o profiling.o main.o moc_window.o window.o test profiling kalkulacka moc_predefs.h moc_window.cpp 
+	rm -f $(ALL_CLEAN)
 
 test: test.o tests.o math_lib.o
 	$(CXX) test.o tests.o math_lib.o -o test
