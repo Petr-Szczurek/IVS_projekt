@@ -15,8 +15,7 @@ CXX = g++
 pack:
 
 clean:
-	rm math_lib.o test.o tests.o profiling.o main.o moc_window.o window.o test profiling kalkulacka 
-#	rm Makefile
+	rm -f math_lib.o test.o tests.o profiling.o main.o moc_window.o window.o test profiling kalkulacka moc_predefs.h moc_window.cpp 
 
 test: test.o tests.o math_lib.o
 	$(CXX) test.o tests.o math_lib.o -o test
