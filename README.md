@@ -1,10 +1,10 @@
-Prostredi
+Prostředí
 ---------
 
 Windows 64bit
 Ubuntu 64bit
 
-Autori
+Autoři
 ------
 
 ☠️Tým xszczu00
@@ -15,4 +15,4 @@ Autori
 Licence
 -------
 
-Tento program je poskytovan...
+Tento program je poskytován všem pro libovolné účely

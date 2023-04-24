@@ -1,1 +1,3 @@
-tento soubor bude obsahovat rozdil mezi planem projektu a skutecnosti
+Časový plán projektu se mírně lišil od stanovených termínů. V průběhu implementace jsme přicházeli na nové problémy a současně jsme je řešili. Toto nám vytvořilo mírný časový skluz.
+Co se týče rozdělení práce tak ta se nakonec vyměnila a s plánem sedí minimálně.
+Ostatní části projektu jsme zvládli podle očekávání a již nebyly jiné problémy.
