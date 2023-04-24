@@ -2,13 +2,21 @@
 #include <vector>
 #include "math_lib.h"
 
+/**
+ *   @file profiling.cpp
+ *   @author Petr Szczurek
+ *   @author Matous Huczala
+ *   @author Martin Rybnikar
+ */
+
 using namespace std;
 
-int main() {
-	vector<int> arr;
-	int i = 0;
-	int int_input;
-	char char_input;
+int main() 
+{
+	vector<int> arr; ///< pole znaků
+	int i = 0; ///< přepínač podmínek
+	int int_input; ///< dočasná proměnná pro hodnoty
+	char char_input; ///< načítání znaků
 	
 	//cyklus pro načtení čísel ze souboru
 	do{
@@ -23,8 +31,8 @@ int main() {
 		}
 	} while(char_input != EOF);
 
-	//dale uz je jen vypocet podle vzorecku a vypis do konzole
-	int suma = 0; //součet všech čísel
+	//výpočet podle vzorce a výpis do konzole
+	int suma = 0; ///<součet všech čísel
 	int N = arr.size();
 
 	for(int i = 0; i < N; i++)
@@ -34,7 +42,7 @@ int main() {
 	Math_lib::deleni(1.0, N, &n);
 	double x = Math_lib::nasobeni(n, suma);
 	double Nxx = Math_lib::nasobeni(N, Math_lib::na_x(x, 2));
-	double soucet = 0; // (xx0 + xx1 + ... )
+	double soucet = 0; ///< (xx0 + xx1 + ... )
 
 	for(int i = 0; i < N; i++)
 		soucet = Math_lib::secti(soucet, Math_lib::na_x(arr.at(i), 2));
@@ -46,13 +54,12 @@ int main() {
 	
 	bool valid = true;
 	valid = Math_lib::odmocnina(s, 2, &s);
-	if (!valid)
-	{
+	if (!valid){
 		cout << "Chyba pri pocitani odmocniny\n";
 		return -1;
 	}
 	
-	//vypis do konzole
+	//výpis do konzole
 	cout << s << endl;
 	arr.clear();
 
