@@ -4,7 +4,7 @@
 #include <QLocale>
 #include <QTranslator>
 /**
- *   @file profiling.cpp
+ *   @file main.cpp
  *   @author Petr Szczurek
  *   @author Matous Huczala
  *   @author Martin Rybnikar

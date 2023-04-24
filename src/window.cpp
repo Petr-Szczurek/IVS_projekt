@@ -166,7 +166,7 @@ void Window::EqualButtonPressed(){
             error = Math_lib::modulo(intVal, intVal_aff_but, &vysledek);
         }
         else if(odmocnina){
-            vysledek = Math_lib::odmocnina(calcValue, affter_butt_Val);
+            error = Math_lib::odmocnina(calcValue, affter_butt_Val, &vysledek);
         }
     }
 
