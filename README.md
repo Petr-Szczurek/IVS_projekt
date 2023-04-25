@@ -1,7 +1,6 @@
 Prostředí
 ---------
 
-Windows 64bit
 Ubuntu 64bit
 
 Autoři
@@ -15,4 +14,8 @@ Autoři
 Licence
 -------
 
-Tento program je poskytován všem pro libovolné účely
+Tento program je poskytován pod licencí GNU GPL v. 3.
+
+Instalace projektu - Ubuntu 64bit
+---------------------------------
+
