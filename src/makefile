@@ -13,6 +13,23 @@ CXX = g++
 #	make -f Makefile
 
 pack:
+	mkdir ../../xszczu00
+	
+	mkdir doc
+	mv doc ../../xszczu00
+	doxygen Doxyfile
+	mv html ../../xszczu00/doc
+	mv latex ../../xszczu00/doc
+	
+	
+	mkdir install
+	mv install ../../xszczu00
+	mv ../../Profiling ../../xszczu00/install
+#	mv ../../Kalkulacka ../../xszczu00/install	až bude hotová instalačka kalkulačky
+	
+	mkdir repo
+	mv repo ../../xszczu00
+	mv ../../IVS_projekt ../../xszczu00/repo
 
 clean:
 	rm -f *.o test stddev kalkulacka moc_predefs.h moc_window.cpp 
