@@ -1,3 +1,3 @@
-xszczu00 100 (Git repozitář včetně configu, dokumentace, uprava testu a mat. funkci)
+xszczu00 100 (Git repozitář včetně configu, dokumentace, uprava testu a mat. funkci, pomoc s instalatorem)
 xhucza02 100 (GUI, instalátor, mockup)
 xrybni10 100 (profiling, základ testů, základ mat. operací)

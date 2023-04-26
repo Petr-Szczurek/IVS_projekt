@@ -1,35 +1,32 @@
-# all: (přeloží projekt – včetně programu pro profiling)
-# pack (zabalí projekt tak, aby mohl být odevzdán)
-# clean (smaže všechny soubory, co nemají být odevzdány)
-# test (spustí testy matematické knihovny) 
-# doc (spustí generování dokumentace)
-# run (spustí program)
-# profile (spustí překlad programu pro výpočet směrodatné odchylky na profiling)
-# default - all
 CXX = g++
 
-#all: profile test
-#	qmake6 kalkulacka.pro
-#	make -f Makefile
+all: profile
+	qmake6 kalkulacka.pro
+	make -f Makefile
 
+# pro zabalení je potřeba mít instalační balíčky v adresáři nad repozitářem a adresář xlongin... nesmí existovat ve stejnem adresáři.
 pack:
-	mkdir ../../xszczu00
+	mkdir -p ../../xszczu00_xhucza02_xrybni10
 	
-	mkdir doc
-	mv doc ../../xszczu00
+	mkdir -p doc
+	rm -rf ../../xszczu00_xhucza02_xrybni10/doc
+	mv doc ../../xszczu00_xhucza02_xrybni10
 	doxygen Doxyfile
-	mv html ../../xszczu00/doc
-	mv latex ../../xszczu00/doc
+	mv -f html ../../xszczu00_xhucza02_xrybni10/doc
+	mv -f latex ../../xszczu00_xhucza02_xrybni10/doc
 	
+	mkdir -p install
+	mv -i -n install ../../xszczu00_xhucza02_xrybni10
+	mv -i -n ../../stddev_04_amd64.deb ../../xszczu00_xhucza02_xrybni10/install
+	mv -i -n ../../kalkulacka_04_amd64.deb ../../xszczu00_xhucza02_xrybni10/install
 	
-	mkdir install
-	mv install ../../xszczu00
-	mv ../../Profiling ../../xszczu00/install
-#	mv ../../Kalkulacka ../../xszczu00/install	až bude hotová instalačka kalkulačky
-	
-	mkdir repo
-	mv repo ../../xszczu00
-	mv ../../IVS_projekt ../../xszczu00/repo
+	mkdir  -p repo
+	rm -rf ../../xszczu00_xhucza02_xrybni10/repo
+	mv -f repo ../../xszczu00_xhucza02_xrybni10
+	cp -R ../../IVS_projekt ../../xszczu00_xhucza02_xrybni10/repo/
+
+	cd .. && cd .. && zip -r xszczu00_xhucza02_xrybni10.zip xszczu00_xhucza02_xrybni10/
+	rm -rf ../../xszczu00_xhucza02_xrybni10
 
 clean:
 	rm -f *.o test stddev kalkulacka moc_predefs.h moc_window.cpp 

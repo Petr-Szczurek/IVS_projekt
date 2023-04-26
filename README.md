@@ -14,7 +14,7 @@ Autoři
 Licence
 -------
 
-Tento program je poskytován pod licencí GNU GPL v. 3.
+Tento program je poskytován pod licencí GNU GPL v. 2.
 
 Instalace projektu - Ubuntu 64bit
 ---------------------------------
